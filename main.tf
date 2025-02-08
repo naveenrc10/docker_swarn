@@ -37,5 +37,5 @@ resource "aws_instance" "DC_Cluster" {
   }
   for_each = toset(local.servers)
   key_name = "example"
-  security_groups = [aws_security_group.sg-1.name
+  security_groups = [aws_security_group.DC_SG.id]
 }
