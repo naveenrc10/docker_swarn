@@ -30,11 +30,12 @@ resource "aws_security_group" "DC_SG" {
 }
 
 resource "aws_instance" "DC_Cluster" {
-  for_each = toset(local.servers)
   ami = "ami-04b4f1a9cf54c11d0"
   instance_type = "t2.micro"
   tags = {
-    name = each.key
+    Name = each.value
   }
-  security_groups = [aws_security_group.DC_SG.id]
+  for_each = toset(local.servers)
+  key_name = "example"
+  security_groups = [aws_security_group.sg-1.name
 }
