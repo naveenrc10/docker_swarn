@@ -17,12 +17,7 @@ terraform {
       version = "3.1.0"
     }
   }
-  backend "s3" {
-    bucket = "terraform-state-2025-01-29"
-    key = "terraform.tfstate"
-    region = "us-east-1"
-    dynamodb_table = "terraform-state-locking"
-  }
+  
 }
 
 provider "aws" {
