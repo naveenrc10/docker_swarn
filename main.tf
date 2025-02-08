@@ -34,7 +34,7 @@ resource "aws_instance" "DC_Cluster" {
   ami = "ami-04b4f1a9cf54c11d0"
   instance_type = "t2.micro"
   tags = {
-    name = each.value
+    name = each.key
   }
   security_groups = [aws_security_group.DC_SG.id]
 }
