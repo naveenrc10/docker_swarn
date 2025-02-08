@@ -38,5 +38,5 @@ resource "aws_instance" "DC_Cluster" {
   for_each = toset(local.servers)
   key_name = "example"
   security_groups = [aws_security_group.DC_SG.name]
-  user_data = base64encode(file(ec2Init.sh))
+  user_data = base64encode(file("ec2Init.sh"))
 }
