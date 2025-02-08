@@ -6,7 +6,7 @@ resource "aws_security_group" "DC_SG" {
     name = "allow_ssh" 
     description = "Security group to allow SSH access" 
     # Replace with your VPC ID 
-    vpc_id = aws_vpc.nginx_vpc.id
+    
     ingress { 
         from_port = 22 
         to_port = 22 
