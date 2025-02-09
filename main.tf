@@ -1,6 +1,11 @@
 locals {
   servers =["DC-Leader","DC-Node1","DC-Node2"]
 }
+resource "aws_key_pair" "dc_key" {
+  key_name = "dc_key"
+  public_key = file("dc_key.pub")
+  
+}
 
 resource "aws_security_group" "DC_SG" {
     name = "allow_ssh" 
@@ -36,7 +41,7 @@ resource "aws_instance" "DC_Cluster" {
     Name = each.value
   }
   for_each = toset(local.servers)
-  key_name = "example"
+  key_name = aws_key_pair.dc_key.key_name
   security_groups = [aws_security_group.DC_SG.name]
   user_data = base64encode(file("ec2Init.sh"))
 }
