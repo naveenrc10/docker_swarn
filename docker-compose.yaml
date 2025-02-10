@@ -32,15 +32,6 @@ services:
       DB_PASSWORD: LearnTogrow123!
     depends_on:
      - mysqlDB 
-  nginx:
-    build:
-      context: .
-      dockerfile: "./DockerBuilds/DockerFile_nginx"
-    ports:
-      - "801:80"
-    depends_on:
-      - simple_spring_Api1
-      - simple_spring_Api2
 
 
   
