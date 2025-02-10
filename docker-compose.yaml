@@ -18,4 +18,4 @@ services:
       DB_USERNAME: SimpleAppUserID
       DB_PASSWORD: LearnTogrow123!
     depends_on:
-     - DB_Service
+     - DB_Service 
