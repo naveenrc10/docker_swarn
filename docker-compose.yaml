@@ -35,7 +35,7 @@ services:
       DB_USERNAME: SimpleAppUserID
       DB_PASSWORD: LearnTogrow123!
     depends_on:
-     - mysqlDB 
+     - simple_spring_Api1 
   nginx:
     build:
       context: .
