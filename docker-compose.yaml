@@ -39,9 +39,8 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - server1
-      - server2
-      - server3
-  
+      - simple_spring_Api1
+      - simple_spring_Api2
+
 
   
