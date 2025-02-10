@@ -1,0 +1,2 @@
+docker run -it --rm --name simple_spring_api -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.9.9-eclipse-temurin-11 mvn clean install
+docker build -f ./DockerBuilds/DockerFile_buildAppImage  -t simple_spring_api .
