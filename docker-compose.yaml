@@ -11,6 +11,10 @@ services:
       MYSQL_USER: SimpleAppUserID
       MYSQL_PASSWORD: LearnTogrow123!
   simple_spring_Api:
+    build: 
+      context: .
+      dockerfile: "./DockerBuilds/DockerFile_buildAppImage"
+      target: simple_spring_api
     hostname: SpringApiApp
     image: simple_spring_api
     ports:
