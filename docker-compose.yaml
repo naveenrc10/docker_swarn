@@ -1,0 +1,13 @@
+services: 
+  mysqlDB:
+    hostname: mysqlDB
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ka014626
+      MYSQL_DATABASE: DB_Service
+      MYSQL_USER: SimpleAppUserID
+      MYSQL_PASSWORD: LearnTogrow123!
+  simple_spring_Api:
+    hostname: SpringApiApp
+    image: simple_spring_api
