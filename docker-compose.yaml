@@ -22,7 +22,7 @@ services:
     depends_on:
      - mysqlDB 
   simple_spring_Api2:
-    hostname: SpringApiApp1
+    hostname: SpringApiApp2
     image: simple_spring_api
     ports:
       - 8082:8080
