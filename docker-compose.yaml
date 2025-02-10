@@ -3,6 +3,8 @@ services:
     hostname: mysqlDB
     image: mysql
     restart: always
+    ports:
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: ka014626
       MYSQL_DATABASE: DB_Service
@@ -11,3 +13,9 @@ services:
   simple_spring_Api:
     hostname: SpringApiApp
     image: simple_spring_api
+    environment:
+      DB_URL: jdbc:mysql://mysqlDB:3306/DB_Service
+      DB_USERNAME: SimpleAppUserID
+      DB_PASSWORD: LearnTogrow123!
+    depends_on:
+     - DB_Service
