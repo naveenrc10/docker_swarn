@@ -22,29 +22,3 @@ services:
       DB_PASSWORD: LearnTogrow123!
     depends_on:
      - mysqlDB 
-  simple_spring_Api2:
-    hostname: SpringApiApp2
-    container_name: SpringApiApp2
-    image: simple_spring_api
-    ports:
-      - 8082:8080
-    environment:
-      DB_URL: jdbc:mysql://mysqlDB:3306/DB_Service
-      DB_USERNAME: SimpleAppUserID
-      DB_PASSWORD: LearnTogrow123!
-    depends_on:
-     - simple_spring_Api1 
-  nginx:
-    build:
-      context: .
-      dockerfile: "./DockerBuilds/DockerFile_nginx"
-    container_name: nginxLoadBalancer
-
-    ports:
-      - "801:80"
-    depends_on:
-      - simple_spring_Api1
-      - simple_spring_Api2
-
-
-  
