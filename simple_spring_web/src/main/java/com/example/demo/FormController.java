@@ -12,12 +12,12 @@ import org.springframework.web.client.RestTemplate;
 public class FormController {
 
     private final RestTemplate restTemplate;
-
-    @Value("${external.api.url}")
+    
     private String baseAPIURL;
 
-    public FormController(RestTemplate restTemplate) {
+    public FormController(RestTemplate restTemplate, @Value("${external.api.url}") String apiUrl) {
         this.restTemplate = restTemplate;
+        this.apiUrl = apiUrl;
     }
 
     @GetMapping("/form")
