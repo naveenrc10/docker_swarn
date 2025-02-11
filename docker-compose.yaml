@@ -3,8 +3,6 @@ services:
     hostname: mysqlDB
     container_name: mysqlDB
     image: mysql
-    
-    
     ports:
       - 3306:3306
     environment:
