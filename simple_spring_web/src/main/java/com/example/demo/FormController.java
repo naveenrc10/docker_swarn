@@ -18,7 +18,7 @@ public class FormController {
 
     public FormController(RestTemplate restTemplate, @Value("${external.api.url}") String apiUrl) {
         this.restTemplate = restTemplate;
-        this.apiUrl = apiUrl;
+        this.baseAPIURL = apiUrl;
     }
 
     @GetMapping("/form")
