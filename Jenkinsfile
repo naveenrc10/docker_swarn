@@ -4,11 +4,10 @@ pipeline {
             reuseNode true
         }
     stages {
-        
         stage('Build') {
             agent {
                 docker{
-                    image: eclipse-temurin:11-jdk-alpine
+                    image: 'eclipse-temurin:11-jdk-alpine'
 
                 }
             }
