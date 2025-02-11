@@ -10,6 +10,8 @@ services:
       MYSQL_DATABASE: DB_Service
       MYSQL_USER: SimpleAppUserID
       MYSQL_PASSWORD: LearnTogrow123!
+    networks:
+      - simple_spring_app_network
   simple_spring_api:
     hostname: SpringApiApp
     container_name: SpringApiApp
@@ -25,6 +27,8 @@ services:
       DB_PASSWORD: LearnTogrow123!
     depends_on:
      - mysqlDB 
+    networks:
+      - simple_spring_app_network
   simple_spring_web:
     hostname: SpringWebApp
     container_name: SpringWebApp
@@ -38,5 +42,10 @@ services:
       simple_spring_api_url: http://SpringApiApp:8080/
       
     depends_on:
-     - simple_spring_Api 
+     - simple_spring_api 
+    networks:
+      - simple_spring_app_network
+networks:
+  simple_spring_app_network:
+    driver: overlay
 
