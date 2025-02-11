@@ -42,4 +42,5 @@ services:
 networks:
   simple_spring_app_network:
     driver: overlay
+    attachable: true
 
