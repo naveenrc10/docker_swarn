@@ -14,7 +14,7 @@ services:
   simple_spring_api:
     hostname: SpringApiApp
     container_name: SpringApiApp
-    image: simple_spring_api
+    image: navchakravarthy/simple_spring_api:latest
     deploy:
       replicas: 1
       update_config:
@@ -35,7 +35,7 @@ services:
   simple_spring_web:
     hostname: SpringWebApp
     container_name: SpringWebApp
-    image: simple_spring_web
+    image: navchakravarthy/simple_spring_web:latest
     ports:
       - 8080:8080
     deploy:
