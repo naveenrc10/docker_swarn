@@ -9,7 +9,11 @@ pipeline {
                 }
             } 
             steps {
-                sh 'mvn clean install'
+                sh '''
+                ch simple_spring_api
+                mvn clean install
+                '''
+                
             }
         }
         
