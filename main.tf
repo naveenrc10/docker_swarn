@@ -39,6 +39,7 @@ resource "aws_instance" "DC_Cluster" {
   instance_type = "t2.micro"
   tags = {
     Name = each.value
+    App="docker_swarm"
   }
   for_each = toset(local.servers)
   key_name = aws_key_pair.dc_key.key_name
