@@ -1,6 +1,7 @@
 services: 
   mysqlDB:
     container_name: mysqlDB
+    hostname: mysqlDB
     image: mysql
     ports:
       - 3306:3306
