@@ -12,7 +12,7 @@ pipeline {
             
             steps {
                  sh '''
-                    mvn clean install
+                    mvn -f ./simple_spring_api/pom.xml clean install
                  '''
                  
             }
