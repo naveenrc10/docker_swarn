@@ -50,7 +50,7 @@ resource "aws_security_group" "DC_SG" {
 
 resource "aws_instance" "DC_Cluster" {
   ami = "ami-04b4f1a9cf54c11d0"
-  instance_type = "t2.micro"
+  instance_type = "t2.small"
   tags = {
     Name = each.value
     App="docker_swarm"
