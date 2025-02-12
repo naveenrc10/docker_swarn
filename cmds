@@ -1,4 +1,4 @@
 docker run -it --rm --name simple_spring_api -v "$(pwd)/simple_spring_api":/usr/src/mymaven -w /usr/src/mymaven maven:3.9.9-eclipse-temurin-11 mvn clean install
 docker run -it --rm --name simple_spring_web -v "$(pwd)/simple_spring_web":/usr/src/mymaven -w /usr/src/mymaven maven:3.9.9-eclipse-temurin-11 mvn clean install
-docker build -f ./DockerBuilds/DockerFile_api  -t simple_spring_api .
-docker build -f ./DockerBuilds/DockerFile_web  -t simple_spring_web .
+docker build -f ./DockerBuilds/DockerFile_api_1  -t simple_spring_api .
+docker build -f ./DockerBuilds/DockerFile_web_1  -t simple_spring_web .
