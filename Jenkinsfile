@@ -9,7 +9,6 @@ pipeline {
                     reuseNode true
                 }
             }
-            
             steps {
                  sh '''
                     cd simple_spring_api
