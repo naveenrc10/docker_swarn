@@ -16,7 +16,6 @@ pipeline {
                     mvn clean install
                     cd ../simple_spring_web
                     mvn clean install
-
                  '''
                  
             }
