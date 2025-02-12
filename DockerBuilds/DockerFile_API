@@ -8,4 +8,4 @@ WORKDIR /app
 COPY spring-boot-mysql-1.0.0.jar application.jar
 
 # Run the JAR file
-ENTRYPOINT ["java", "-jar", "application.jar"]
+ENTRYPOINT ["java", "-jar", "application.jar"] 
