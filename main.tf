@@ -1,5 +1,5 @@
 locals {
-  servers =["DC-Leader","DC-Node1","DC-Node2"]
+  servers =["DC-Leader1","DC-Node1","DC-Node2"]
 }
 resource "aws_key_pair" "dc_key" {
   key_name = "dc_key"
