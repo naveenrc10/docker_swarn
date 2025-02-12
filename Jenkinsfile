@@ -5,36 +5,16 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'maven:3.8.4-openjdk-17'
+                    image 'eclipse-temurin:11-jdk'
                     reuseNode true
                 }
             }
             steps {
                 sh 'cd simple_spring_api'
+                sh 'pwd'
                 sh 'mvn clean install'
             }
         }
-        stage('Test') {
-            agent {
-                docker {
-                    image 'maven:3.8.4-openjdk-17'
-                    reuseNode true
-                }
-            }
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Deploy') {
-            agent {
-                docker {
-                    image 'maven:3.8.4-openjdk-17'
-                    reuseNode true
-                }
-            }
-            steps {
-                sh 'mvn deploy'
-            }
-        }
+       
     }
 }
