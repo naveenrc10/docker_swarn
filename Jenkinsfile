@@ -7,7 +7,7 @@ pipeline {
                 docker {
                     image 'eclipse-temurin:11-jdk'
                     reuseNode true
-                    args '-v $WORKSPACE:/simple_spring_api -w /simple_spring_api'
+                    args '-v ${WORKSPACE}/simple_spring_api:/app -w /app'
                 }
             }
             steps {
