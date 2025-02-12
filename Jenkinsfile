@@ -3,14 +3,11 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'eclipse-temurin:11-jdk'
-                    args '-v ${WORKSPACE}/simple_spring_api:/app -w /app'
-                }
-            }
+            
             steps {
-                 sh 'ls -l'
+                 sh '''
+                    docker run -it --rm --name simple_spring_api -v "$(pwd)/simple_spring_api":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn clean install
+                 '''
                  
             }
         }
