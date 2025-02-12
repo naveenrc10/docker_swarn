@@ -14,6 +14,9 @@ pipeline {
                  sh '''
                     cd simple_spring_api
                     mvn clean install
+                    cd ../simple_spring_web
+                    mvn clean install
+
                  '''
                  
             }
