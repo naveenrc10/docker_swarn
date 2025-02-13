@@ -1,26 +1,25 @@
-services: 
+version: '3.7'
+
+services:
   mysqlDB:
-    container_name: mysqlDB
-    hostname: mysqlDB
     image: mysql
     ports:
-      - 3306:3306
+      - "3306:3306"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: ka014626
       MYSQL_DATABASE: DB_Service
       MYSQL_USER: SimpleAppUserID
       MYSQL_PASSWORD: LearnTogrow123!
-    networks:
-      - simple_spring_app_network
+    volumes:
+      - db-data:/var/lib/mysql
   simple_spring_api:
-    hostname: SpringApiApp
-    container_name: SpringApiApp
     image: navchakravarthy/simple_spring_api:latest
     deploy:
       replicas: 1
-      update_config:
-        parallelism: 1
-        delay: 10s
       restart_policy:
         condition: on-failure
     ports:
@@ -30,30 +29,18 @@ services:
       DB_USERNAME: SimpleAppUserID
       DB_PASSWORD: LearnTogrow123!
     depends_on:
-     - mysqlDB 
-    networks:
-      - simple_spring_app_network
+     - mysqlDB            
   simple_spring_web:
-    hostname: SpringWebApp
-    container_name: SpringWebApp
-    image: navchakravarthy/simple_spring_web:latest
-    ports:
-      - 8080:8080
-    deploy:
-      replicas: 1
-      update_config:
-        parallelism: 1
-        delay: 10s
-      restart_policy:
-        condition: on-failure
-    environment:
-      simple_spring_api_url: http://SpringApiApp:8080/
-    depends_on:
-     - simple_spring_api 
-    networks:
-      - simple_spring_app_network
-networks:
-  simple_spring_app_network:
-    driver: overlay
-    attachable: true
-
+      image: navchakravarthy/simple_spring_web:latest
+      ports:
+        - 8080:8080
+      deploy:
+        replicas: 1
+        restart_policy:
+          condition: on-failure
+      environment:
+        simple_spring_api_url: http://simple_spring_api:8080/
+      depends_on:
+       - simple_spring_api
+volumes:
+  db-data:
