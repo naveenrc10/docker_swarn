@@ -11,32 +11,11 @@ resource "aws_security_group" "DC_SG" {
     name = "allow_ssh" 
     description = "Security group to allow SSH access" 
     # Replace with your VPC ID 
-    
-    ingress { 
-        from_port = 22 
-        to_port = 22 
-        protocol = "tcp" 
-        cidr_blocks = ["0.0.0.0/0"] # Allow SSH from anywhere; use specific IPs or ranges for better security
-    } 
-    ingress {
-        description = "Allow HTTP"
-        from_port   = 8080
-        to_port     = 8081
-        protocol    = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    ingress {
-        description = "Allow HTTP"
-        from_port   = 2377
-        to_port     = 2377
-        protocol    = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-     ingress {
-        description = "Allow HTTP"
-        from_port   = 3306
-        to_port     = 3306
-        protocol    = "tcp"
+  ingress {
+        description = "Allow All"
+        from_port   = 0
+        to_port     = 0
+        protocol    = "-1"
         cidr_blocks = ["0.0.0.0/0"]
     }
     egress { 
