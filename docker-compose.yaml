@@ -19,7 +19,7 @@ services:
     networks:
       - my_network
   simplespringapi:
-    image: navchakravarthy/simple_spring_api:latest
+    image: simple_spring_api:latest
     deploy:
       replicas: 1
       restart_policy:
@@ -35,7 +35,7 @@ services:
     networks:
       - my_network
   simplespringweb:
-    image: navchakravarthy/simple_spring_web:latest
+    image: simple_spring_web:latest
     deploy:
       replicas: 1
       restart_policy:
